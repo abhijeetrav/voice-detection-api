@@ -4,6 +4,14 @@ import fetch from "node-fetch";
 const app = express();
 app.use(express.json());
 
+
+
+app.get("/", (req, res) => {
+  res.send("API LIVE");
+});
+
+
+
 app.post("/api/voice-detect", async (req, res) => {
   const { audio_url } = req.body;
 
