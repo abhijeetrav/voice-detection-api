@@ -14,10 +14,11 @@ app.get("/", (req, res) => {
 // Voice detect API (Base64 supported)
 app.post("/api/voice-detect", async (req, res) => {
   // const { audio_base64, audio_format } = req.body;
-  //edited code are below 18-21
+  //edited code are below
+
+
   const audio_base64 =
   req.body.audio_base64 || req.body.audio_base64_format;
-
 const { audio_format } = req.body;
 
 
@@ -48,9 +49,9 @@ const { audio_format } = req.body;
   return res.json({
     is_ai_generated: false,
     confidence: 0.78,
-    language: "hi-en",
-    audio_format: audio_format,
-    message: "Base64 audio received successfully"
+    // language: "Hindi,English",
+    // audio_format: audio_format,
+    // message: "Base64 audio received successfully"
   });
 });
 
