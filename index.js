@@ -4,7 +4,7 @@ import express from "express";
 const app = express();
 
 // IMPORTANT: base64 audio ke liye limit badhani padti hai
-app.use(express.json({ limit: "15mb" }));
+app.use(express.json({ limit: "20mb" }));
 
 // Health check
 app.get("/", (req, res) => {
@@ -13,7 +13,13 @@ app.get("/", (req, res) => {
 
 // Voice detect API (Base64 supported)
 app.post("/api/voice-detect", async (req, res) => {
-  const { audio_base64, audio_format } = req.body;
+  // const { audio_base64, audio_format } = req.body;
+  //edited code are below 18-21
+  const audio_base64 =
+  req.body.audio_base64 || req.body.audio_base64_format;
+
+const { audio_format } = req.body;
+
 
   // Validation
   if (!audio_base64) {
